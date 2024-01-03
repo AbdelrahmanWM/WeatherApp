@@ -1,0 +1,189 @@
+:root{
+    --color-sky:#4dcbd4;
+    --color-gray:#666;
+    
+}
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main{
+    margin-left:auto;
+    margin-right:auto;
+    width:65%;
+    padding:1.5rem;
+}
+/*  Header/Main/Footer */
+header,footer{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-gray);
+    color:white;
+    font-family:Arial, Helvetica, sans-serif
+}
+header .material-symbols-outlined{
+    display:inline-block;
+    font-size:50px;
+    color:var(--color-sky);
+}
+/*************************/
+
+/* div.search */
+div.search{
+padding:1rem;
+display:flex;
+justify-content: center;
+
+
+}
+div.search input{
+    padding:0.5rem;
+    width:50%;
+    outline:none;
+    border:2px solid var(--color-gray);
+}
+div.search input:focus{
+    border-color:var(--color-sky)
+}
+div.search button{
+background-color: var(--color-sky);
+color:white;
+border-color:var(--color-gray);
+}
+/*************/
+/* div.current */
+div.current{
+    padding:2rem 3rem;
+    display:flex;
+    border-top:1px solid var(--color-gray);
+    border-bottom:1px solid var(--color-gray);
+}
+
+div.current>div{
+    padding:1rem;
+}
+.current .generalData{
+    padding:1rem;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    margin-right:50px;
+}
+.current .generalData h2 {
+  display: flex;
+  align-items: center;
+  font-weight: bolder;
+  font-size:2.1rem;
+  color:var(--color-sky);
+    
+}
+.current .generalData h2 small {
+    margin-left:10px;
+    font-size:0.9rem;
+
+    color:var(--color-gray);
+    
+}
+.current .generalData .mainTemp{
+    font-size:100px;
+}
+.current .generalData .condition img{
+    width:100px;
+}
+.current .hourlyData{
+    display:flex;
+    overflow-x:scroll;
+    padding:1rem;
+}
+.hour{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    /* min-width:100px; */
+}
+.hour p{
+    font-size:1.2rem
+}
+@media Screen and (max-width:991px){
+    div.current{
+        padding:0;
+        flex-direction: column;
+    }
+    div.current .generalData{
+        width:100%;
+        margin:none;
+    }
+    div.current .hourlyData{
+        width:100%;
+        padding:0;
+        margin:none;
+        display:grid;
+        overflow:hidden;
+    }
+    div.current .hourlyData .hour{
+        display:grid;
+        grid-template-columns: repeat(3,33.3%);
+    }
+    div.current .hourlyData .hour:not(:nth-child(-n+12)){
+        display:none;
+    }
+    div.current .hourlyData .hour p{
+        text-align: center;
+    }
+}
+/**************/
+
+/* div.days */
+
+table.days{
+    width:100%;
+
+}
+table.days tr{
+    display:grid;
+    grid-template-columns: repeat(6,1fr);
+    place-items: center;
+}
+table.days tr:not(:first-child){
+    border-top:1px solid var(--color-gray);
+}
+table.days tr:nth-child(odd){
+    background-color: #eee;
+}
+table.days tr th{
+    padding:1.5rem;
+    text-transform: uppercase;
+    color:var(--color-gray);
+    font-weight:400;
+    font-size:0.9rem;
+}
+table.days tr td{
+  font-size:1.2rem
+
+}
+@media Screen and (max-width:991px){
+    table.days{
+        margin-top:1rem;
+    }
+    table.days tr th{
+        padding:0;
+    }
+    table.days tr td:nth-child(6),table.days tr th:nth-child(6){
+        display:none;
+    }
+    table.days tr{
+        grid-template-columns: repeat(5,1fr);
+    }
+}
+@media Screen and (max-width:490px){
+    table.days tr td:nth-child(5),table.days tr th:nth-child(5){
+        display:none;
+    }
+    table.days tr{
+        grid-template-columns: repeat(4,1fr);
+    }
+}
+
+/*****************/
